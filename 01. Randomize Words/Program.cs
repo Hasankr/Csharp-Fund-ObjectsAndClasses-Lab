@@ -6,7 +6,19 @@ namespace _01._Randomize_Words
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string[] words = Console.ReadLine().Split(' ');
+            Random random = new Random();
+            for (int i = 0; i < words.Length; i++)
+            {
+                int newIndex = random.Next(0, words.Length);
+                string currentWord = words[i];
+                words[i] = words[newIndex];
+                words[newIndex] = currentWord;
+            }
+            foreach (var word in words)
+            {
+                Console.WriteLine(word);
+            }
         }
     }
 }
